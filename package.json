@@ -1,6 +1,6 @@
 {
     "name": "astro-integration-gea",
-    "version": "0.1.0-beta.2",
+    "version": "0.1.0-beta.3",
     "type": "module",
     "license": "MIT",
     "main": "./dist/index.js",
