@@ -4,14 +4,9 @@ on:
     release:
         types: [ published ]
 
-permissions:
-    id-token: write
-    contents: read
-
 jobs:
     publish:
         runs-on: ubuntu-latest
-        environment: release
         steps:
             -   name: Checkout repository
                 uses: actions/checkout@v4
@@ -32,4 +27,6 @@ jobs:
                 run: npm test
 
             -   name: Build and Publish
-                run: npm publish --provenance --access public
+                run: npm publish --access public
+                env:
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
