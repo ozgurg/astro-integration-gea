@@ -7,6 +7,9 @@ on:
 jobs:
     publish:
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            id-token: write # Required for Trusted Publishing / OIDC
         steps:
             -   name: Checkout repository
                 uses: actions/checkout@v4
@@ -24,6 +27,4 @@ jobs:
                 run: npm test
 
             -   name: Build and Publish
-                run: npm publish --access public
-                env:
-                    NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+                run: npm publish --provenance --access public
