@@ -4,13 +4,14 @@ on:
     release:
         types: [ published ]
 
+permissions:
+    id-token: write
+    contents: read
+
 jobs:
     publish:
         runs-on: ubuntu-latest
         environment: release
-        permissions:
-            contents: read
-            id-token: write # Required for Trusted Publishing / OIDC
         steps:
             -   name: Checkout repository
                 uses: actions/checkout@v4
