@@ -1,0 +1,17 @@
+---
+import TestComponent from "../components/TestComponent.tsx";
+---
+
+<html>
+<head>
+    <title>Test Page</title>
+</head>
+<body>
+<TestComponent client:load title="Hello Test">
+    <p id="default-slot">Default Content</p>
+    <div slot="footer" id="named-slot">
+        Footer Content
+    </div>
+</TestComponent>
+</body>
+</html>

@@ -1,0 +1,21 @@
+.greeting-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.5rem 0 0
+}
+
+.greeting-body p {
+    font-size: 1.35rem;
+    margin: 0;
+    text-align: center
+}
+
+.greeting-body .highlight {
+    color: var(--accent);
+    font-weight: 700
+}
+
+.greeting-input {
+    text-align: center
+}

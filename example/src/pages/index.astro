@@ -1,0 +1,227 @@
+---
+import CounterApp from "../components/counter/app.jsx";
+import TodoApp from "../components/todo/app.jsx";
+import GreetingApp from "../components/greeting/app.jsx";
+import GlobalApp from "../components/global/app.jsx";
+import QuoteApp from "../components/quote/app.jsx";
+
+const serverQuote = {
+    content: "Umutsuz durumlar yoktur, umutsuz insanlar vardır. Ben hiçbir zaman umudumu yitirmedim. Şayet bir gün çaresiz kalırsanız, kurtarıcı beklemeyin. Kurtarıcı kendiniz olun.",
+    author: "Mustafa Kemal Atatürk"
+};
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Astro + Gea</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style is:global>
+        :root {
+            --bg: #fafafa;
+            --surface: #ffffff;
+            --border: #e8e8e8;
+            --text: #1a1a1a;
+            --text-secondary: #737373;
+            --accent: #2563eb;
+            --accent-soft: #eff6ff;
+            --amber: #f59e0b;
+            --amber-soft: rgba(245, 158, 11, 0.08);
+            --radius: 10px
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            background: var(--bg);
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            margin: 0;
+            padding: 2.5rem 1.5rem 4rem;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased
+        }
+
+        .page {
+            max-width: 960px;
+            margin: 0 auto
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 0.25rem;
+            letter-spacing: -0.02em
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.95rem
+        }
+
+        .section {
+            margin-bottom: 2.5rem
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin: 0 0 1rem;
+            padding-left: 2px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem
+        }
+
+        .card h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 2px 7px;
+            border-radius: 4px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            white-space: nowrap
+        }
+
+        .badge--amber {
+            background: var(--amber-soft);
+            color: var(--amber)
+        }
+
+        .card input:not([type="checkbox"]) {
+            width: 100%;
+            padding: 9px 12px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none
+        }
+
+        .card input:not([type="checkbox"]):focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft)
+        }
+
+        .btn {
+            font-family: inherit;
+            font-size: 0.875rem;
+            padding: 7px 14px;
+            cursor: pointer;
+            background: var(--accent-soft);
+            border: none;
+            color: var(--accent);
+            border-radius: 6px;
+            font-weight: 500
+        }
+
+        .slot-content {
+            padding: 0.875rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--text)
+        }
+
+        .slot-default {
+            background: var(--amber-soft)
+        }
+
+        .slot-default strong {
+            color: var(--amber)
+        }
+
+        .slot-footer {
+            background: var(--accent-soft)
+        }
+
+        .slot-footer strong {
+            color: var(--accent)
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.825rem;
+            font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace
+        }
+
+        .grid--full {
+            grid-template-columns: 1fr
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header class="page-header">
+        <h1>Astro + Gea</h1>
+        <p>A minimal demo of the Astro integration for Gea</p>
+    </header>
+
+    <section class="section">
+        <h3 class="section-title">Interactive Components</h3>
+        <div class="grid">
+            <GlobalApp client:load />
+            <CounterApp client:load />
+            <TodoApp client:load />
+            <GreetingApp client:load />
+        </div>
+    </section>
+
+    <section class="section">
+        <h3 class="section-title">Astro Integration Features</h3>
+        <div class="grid grid--full">
+            <QuoteApp
+                    client:visible
+                    initialQuote={serverQuote.content}
+                    initialAuthor={serverQuote.author}>
+                <div class="slot-content slot-default">
+                    <strong>Default Slot</strong> — This static HTML was server-rendered by
+                    Astro and injected where <code>&lt;slot /&gt;</code> appears in the component template.
+                </div>
+                <div slot="footer" class="slot-content slot-footer">
+                    <strong>Named Slot <code>footer</code></strong> — This content targets <code>&lt;slot name="footer" /&gt;</code> in the component template.
+                </div>
+            </QuoteApp>
+        </div>
+    </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+    "extends": "astro/tsconfigs/strict",
+    "compilerOptions": {
+        "jsx": "preserve",
+        "jsxImportSource": "@geajs/core"
+    },
+    "include": [
+        "../node_modules/@geajs/vite-plugin/gea-env.d.ts"
+    ]
+}

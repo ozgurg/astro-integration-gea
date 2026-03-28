@@ -1,0 +1,70 @@
+{
+    "name": "astro-integration-gea",
+    "version": "0.1.0-beta.1",
+    "type": "module",
+    "license": "MIT",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./server.js": {
+            "types": "./dist/server.d.ts",
+            "import": "./dist/server.js"
+        },
+        "./client.js": {
+            "types": "./dist/client.d.ts",
+            "import": "./dist/client.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "vite build && tsc --emitDeclarationOnly",
+        "test": "vitest run",
+        "clean": "rm -rf dist",
+        "prepublishOnly": "npm run build"
+    },
+    "sideEffects": false,
+    "engines": {
+        "node": ">=22.0.0"
+    },
+    "dependencies": {
+        "linkedom": "^0.18.2"
+    },
+    "peerDependencies": {
+        "@geajs/core": "^1.0.0",
+        "@geajs/vite-plugin": "^1.0.0",
+        "astro": "^4.0.0 || ^5.0.0 || ^6.0.0"
+    },
+    "devDependencies": {
+        "@geajs/core": "^1.0.0",
+        "@geajs/vite-plugin": "^1.0.0",
+        "@types/node": "^22.0.0",
+        "astro": "^6.0.0",
+        "typescript": "^5.0.0",
+        "vitest": "^2.1.0"
+    },
+    "description": "Astro integration for Gea components with full support for islands architecture and native slots.",
+    "author": {
+        "name": "Özgür Görgülü",
+        "url": "https://github.com/ozgurg"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ozgurg/astro-integration-gea.git"
+    },
+    "homepage": "https://github.com/ozgurg/astro-integration-gea#readme",
+    "bugs": {
+        "url": "https://github.com/ozgurg/astro-integration-gea/issues"
+    },
+    "keywords": [
+        "astro",
+        "geajs",
+        "astro-integration"
+    ]
+}

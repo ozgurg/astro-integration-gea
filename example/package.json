@@ -1,0 +1,14 @@
+{
+    "type": "module",
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview"
+    },
+    "dependencies": {
+        "astro": "^6.0.0",
+        "astro-integration-gea": "file:..",
+        "@geajs/core": "^1.0.0",
+        "@geajs/vite-plugin": "^1.0.0"
+    }
+}

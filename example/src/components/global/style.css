@@ -1,0 +1,26 @@
+.global-card {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-color: var(--accent);
+    background: var(--accent-soft)
+}
+
+.global-card h2 {
+    margin: 0
+}
+
+.global-card p {
+    margin: 0.25rem 0 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary)
+}
+
+.global-btn {
+    background: var(--accent);
+    color: white;
+    padding: 9px 20px
+}

@@ -1,0 +1,11 @@
+.DS_Store
+$RECYCLE.BIN/
+Thumbs.db
+*.log
+dist/
+.astro/
+node_modules/
+package-lock.json
+.idea/
+example/dist
+example/.astro
