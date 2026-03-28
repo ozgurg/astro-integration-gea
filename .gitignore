@@ -5,7 +5,7 @@ Thumbs.db
 dist/
 .astro/
 node_modules/
-package-lock.json
 .idea/
+example/package-lock.json
 example/dist
 example/.astro
