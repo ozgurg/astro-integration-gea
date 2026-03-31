@@ -4,7 +4,7 @@ A powerful, minimal, and compiled-reactivity integration for Astro.
 Build fast apps with Astro's Islands architecture and Gea's lightning-fast reactive model.
 
 > [!WARNING]
-> **Status: Beta / Experimental**  
+> **Status: Beta**  
 > This integration is currently in **beta**. It is **not production-ready** and has **not been battle-tested** in
 > large-scale applications. APIs may change before the 1.0 release. Use with caution in critical projects.
 
@@ -20,7 +20,7 @@ Build fast apps with Astro's Islands architecture and Gea's lightning-fast react
 
 This integration is tested and fully compatible with:
 
-- **Astro:** `^4.0.0`, `^5.0.0`, and `^6.0.0`
+- **Astro:** `^4.0.0` | `^5.0.0` | `^6.0.0`
 - **Gea** `^1.0.0`
 - **Node.js:** `>=22.0.0`
 
@@ -55,7 +55,6 @@ Create your component as a `.tsx` (or `.jsx`) file:
 
 ```tsx
 import { Component } from "@geajs/core";
-import "./style.css";
 
 export default class MyComponent extends Component {
     declare props: { title: string };
@@ -117,4 +116,4 @@ npm run dev
 
 ## License
 
-MIT
+![GitHub License](https://img.shields.io/github/license/ozgurg/astro-integration-gea)
