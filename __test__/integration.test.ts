@@ -13,7 +13,7 @@ describe("Integration tests", () => {
             root: fixtureRoot,
             logLevel: "error"
         });
-    }, 10_000); // 30s timeout for build
+    }, 10_000);
 
     it("should render Gea component on SSR with correct slots", () => {
         const htmlPath = join(fixtureRoot, "dist/index.html");
